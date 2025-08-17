@@ -1,0 +1,10 @@
+flask
+pandas>=2.0
+numpy
+matplotlib
+scikit-learn
+geopy
+meteostat
+requests
+reportlab
+openpyxl
