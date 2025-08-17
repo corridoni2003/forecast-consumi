@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Energy & Meteo Forecaster</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-4">
+  <h1>🔮 Energy & Meteo Forecaster (Multi-sede)</h1>
+  <p>Carica un file Excel con le colonne: <code>Sede,Città,Anno,Mese,Elettricità_kWh,Gas_m3</code></p>
+
+  <form action="{{ url_for('process') }}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="file" class="form-label">File Excel (.xlsx)</label>
+      <input class="form-control" type="file" id="file" name="file" accept=".xlsx" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="base_temp" class="form-label">Temperatura base per HDD/CDD (°C)</label>
+      <input class="form-control" type="number" step="0.5" id="base_temp" name="base_temp" value="18.0">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Processa e genera report</button>
+  </form>
+
+  <hr>
+  <h5>Template CSV (apri con Excel)</h5>
+  <pre>Sede,Città,Anno,Mese,Elettricità_kWh,Gas_m3
+Hotel Milano,Milano,2022,1,,
+Hotel Milano,Milano,2022,2,,
+...
+</pre>
+
+</div>
+</body>
+</html>
